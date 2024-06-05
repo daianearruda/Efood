@@ -5,11 +5,33 @@ export const Card = styled.div`
   background-color: ${colors.white};
   color: ${colors.orange};
   width: 472px;
-  height: 398px;
-  border: 1px 0px 0px 0px;
+
   opacity: 0px;
   text-align: left;
   position: relative;
+
+  .border {
+    border: 1px solid ${colors.orange};
+    border-top: none;
+    margin-top: -0.5em;
+  }
+
+  .photoFood {
+    width: 100%;
+    height: 217px;
+  }
+
+  Button {
+    margin: 0.5em;
+  }
+
+  .details {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0.5em;
+    align-items: center;
+    padding-top: 1em;
+  }
 `
 
 export const Title = styled.h3`
@@ -21,9 +43,21 @@ export const Description = styled.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
+  margin: 1em 0.5em;
 `
-export const Infos = styled.div`
-  position: absolute;
-  top: 14px;
-  right: 16px;
+
+export const Rating = styled.div`
+  display: flex;
+  justify-content: space-between;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.09px;
+  text-align: center;
+  align-items: center;
+  img {
+    width: 21px;
+    height: 21px;
+    margin-left: 4px;
+  }
 `

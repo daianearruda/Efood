@@ -15,10 +15,10 @@ const ProductList = ({ title, restaurants }: Props) => (
         {restaurants.map((rest) => (
           <Product
             key={rest.id}
-            infos={rest.infos}
             category={rest.category}
             description={rest.description}
             image={rest.image}
+            imgStar={rest.imgStar}
             title={rest.title}
             rating={rest.rating}
           />

@@ -1,6 +1,6 @@
 import Tag from '../Tag'
 import Button from '../Button'
-import { Card, Title, Description, Infos } from './style'
+import { Card, Title, Description, Rating } from './style'
 
 type Props = {
   category: string
@@ -8,7 +8,8 @@ type Props = {
   description: string
   image: string
   rating: number
-  infos: string[]
+  highlight?: string
+  imgStar: string
 }
 
 const Product = ({
@@ -17,22 +18,24 @@ const Product = ({
   image,
   description,
   title,
-  infos
+  imgStar
 }: Props) => (
   <Card>
-    <img src={image} alt={title} />
-    <Infos>
-      {infos.map((info) => (
-        <Tag key={info}>{info}</Tag>
-      ))}
-    </Infos>
     <Tag>{category}</Tag>
-    <Tag>{rating}</Tag>
-    <Title>{title}</Title>
-    <Description>{description}</Description>
-    <Button title={title} background="orange" type={'button'}>
-      Saiba mais
-    </Button>
+    <img className="photoFood" src={image} alt={title} />
+    <div className="border">
+      <div className="details">
+        <Title>{title}</Title>
+        <Rating>
+          <div>{rating}</div>
+          <img src={imgStar} />
+        </Rating>
+      </div>
+      <Description>{description}</Description>
+      <Button title={title} background="orange" type={'button'}>
+        Saiba mais
+      </Button>
+    </div>
   </Card>
 )
 

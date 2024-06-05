@@ -1,6 +1,7 @@
 import Tag from '../Tag'
 import Button from '../Button'
 import { Card, Title, Description, Rating } from './style'
+import { Taghighlight } from '../Tag/taghighlight/styles'
 
 type Props = {
   category: string
@@ -8,7 +9,7 @@ type Props = {
   description: string
   image: string
   rating: number
-  highlight?: string
+  type: 'no' | 'highlight'
   imgStar: string
 }
 
@@ -18,9 +19,11 @@ const Product = ({
   image,
   description,
   title,
-  imgStar
+  imgStar,
+  type
 }: Props) => (
   <Card>
+    {type === 'highlight' && <Taghighlight>Destaque da semana</Taghighlight>}
     <Tag>{category}</Tag>
     <img className="photoFood" src={image} alt={title} />
     <div className="border">

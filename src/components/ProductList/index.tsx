@@ -11,6 +11,7 @@ const ProductList = ({ restaurants }: Props) => (
     <List>
       {restaurants.map((rest) => (
         <Product
+          type={rest.type ? rest.type : 'highlight'}
           key={rest.id}
           category={rest.category}
           description={rest.description}

@@ -1,4 +1,5 @@
 class Restaurant {
+  type: 'no' | 'highlight'
   category: string
   title: string
   description: string
@@ -14,7 +15,8 @@ class Restaurant {
     description: string,
     title: string,
     imgStar: string,
-    category: string
+    category: string,
+    type: 'no' | 'highlight'
   ) {
     this.id = id
     this.rating = rating
@@ -23,6 +25,7 @@ class Restaurant {
     this.title = title
     this.category = category
     this.imgStar = imgStar
+    this.type = type
   }
 }
 

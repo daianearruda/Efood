@@ -3,7 +3,8 @@ import { createGlobalStyle } from 'styled-components'
 export const colors = {
   orange: '#E66767',
   beige: '#FFEBD9',
-  white: '#fff'
+  white: '#fff',
+  beige2: '#FFF8F2'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -20,7 +21,7 @@ body{
 }
 
 .container{
-  max-width: 1024px;
+  max-width:1199px;
   width: 100%;
   margin: 0 auto;
 }

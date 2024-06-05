@@ -17,7 +17,7 @@ export const Card = styled.div`
   }
 
   .photoFood {
-    width: 100%;
+    width: 472px;
     height: 217px;
   }
 

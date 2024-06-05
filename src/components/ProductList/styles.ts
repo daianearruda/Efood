@@ -12,8 +12,8 @@ export const List = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr;
   list-style: none;
-  padding: 3em 6em;
-  gap: 3em;
+  padding: 3em 10em;
+  gap: 2em;
   background-color: ${colors.beige2};
-  min-width: 1199px;
+  width: 1366px;
 `

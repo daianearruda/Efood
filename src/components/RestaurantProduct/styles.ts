@@ -3,7 +3,7 @@ import { colors } from '../../styles'
 
 export const ProductCard = styled.div`
   align-items: center;
-  width: 320px;
+  max-width: 320px;
   background-color: ${colors.orange};
   color: ${colors.beige};
   text-align: left;

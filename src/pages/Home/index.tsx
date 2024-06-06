@@ -3,7 +3,7 @@ import Restaurant from '../../components/models/Restaurants'
 import imgStar from '../../assets/images/estrela.png'
 import hioki from '../../assets/images/hioki.png'
 import laDolce from '../../assets/images/laDolce.png'
-import ProductList from '../../components/ProductList'
+import CardRestaurantList from '../../components/CardRestaurantList'
 
 const restaurantes: Restaurant[] = [
   {
@@ -76,7 +76,7 @@ const restaurantes: Restaurant[] = [
 
 const Home = () => (
   <>
-    <ProductList restaurants={restaurantes} />
+    <CardRestaurantList restaurants={restaurantes} />
   </>
 )
 

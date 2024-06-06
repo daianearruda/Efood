@@ -2,6 +2,7 @@ import Tag from '../Tag'
 import Button from '../Button'
 import { Card, Title, Description, Rating } from './style'
 import { Taghighlight } from '../Tag/taghighlight/styles'
+import { Link } from 'react-router-dom'
 
 type Props = {
   category: string
@@ -13,7 +14,7 @@ type Props = {
   imgStar: string
 }
 
-const Product = ({
+const CardRestaurant = ({
   category,
   rating,
   image,
@@ -35,11 +36,13 @@ const Product = ({
         </Rating>
       </div>
       <Description>{description}</Description>
-      <Button title={title} background="orange" type={'button'}>
-        Saiba mais
-      </Button>
+      <Link to="/restaurantes">
+        <Button title={title} background="orange" type={'button'}>
+          Saiba mais
+        </Button>
+      </Link>
     </div>
   </Card>
 )
 
-export default Product
+export default CardRestaurant

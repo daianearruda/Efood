@@ -21,6 +21,9 @@ export const FooterContainer = styled.footer`
 export const Links = styled.ul`
   display: flex;
   margin-bottom: 4em;
+  width: 88px;
+  justify-content: space-between;
+  align-items: center;
 `
 
 export const Link = styled.a`

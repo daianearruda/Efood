@@ -7,6 +7,7 @@ export const HeaderBar = styled.header`
   padding: 2em;
   color: ${colors.orange};
   text-align: center;
+  position: relative;
 
   .container {
     display: flex;

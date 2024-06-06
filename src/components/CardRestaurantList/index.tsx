@@ -1,4 +1,4 @@
-import Product from '../Product'
+import CardRestaurant from '../CardRestaurant'
 import Restaurant from '../models/Restaurants'
 import { Container, List } from './styles'
 
@@ -10,7 +10,7 @@ const ProductList = ({ restaurants }: Props) => (
   <Container>
     <List>
       {restaurants.map((rest) => (
-        <Product
+        <CardRestaurant
           type={rest.type ? rest.type : 'highlight'}
           key={rest.id}
           category={rest.category}

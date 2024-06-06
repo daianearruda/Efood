@@ -26,7 +26,7 @@ export const Links = styled.ul`
   align-items: center;
 `
 
-export const Link = styled.a`
+export const LinkFooter = styled.a`
   width: 24px;
   height: 24px;
 `

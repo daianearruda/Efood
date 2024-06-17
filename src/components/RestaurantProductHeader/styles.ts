@@ -18,15 +18,14 @@ font-size: 18px;
 font-weight: 900;
 line-height: 21.09px;
 text-align: center;
-
-
   }
 `
 export const DetailsHeader = styled.div`
+  width: 1024px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 8.5em;
   margin-top: -8.5em;
   box-sizing: border-box;
   z-index: 2;
@@ -37,9 +36,9 @@ export const DetailsHeader = styled.div`
   }
 `
 export const TitlePhoto = styled.div`
+  width: 1024px;
+  margin: 2em auto;
   height: 380px;
-  margin-left: 8.5em;
-  margin-top: 3em;
   justify-content: space-around;
   display: flex;
   flex-direction: column;

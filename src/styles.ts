@@ -17,11 +17,11 @@ export const GlobalCss = createGlobalStyle`
 }
 
 body{
-
+  width: 100%;
+  height:100%;
 }
 
 .container{
-  max-width:1366px;
   width: 100%;
   margin: 0 auto;
 }

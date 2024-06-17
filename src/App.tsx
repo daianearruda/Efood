@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <GlobalCss />
-      <div id="top"></div> {/* Adicione um identificador aqui */}
+      <div id="top"></div>
       <div className="container">
         <Header />
       </div>

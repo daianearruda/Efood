@@ -2,12 +2,11 @@ import styled from 'styled-components'
 import { colors } from '../../styles'
 
 export const HeaderBar = styled.header`
-  height: 380px;
-  width: 100%;
   padding: 2em;
   color: ${colors.orange};
   text-align: center;
   position: relative;
+  height: 384px;
 
   .container {
     display: flex;

@@ -36,3 +36,23 @@ export const DetailsHeader = styled.div`
     color: ${colors.orange};
   }
 `
+export const TitlePhoto = styled.div`
+  height: 380px;
+  margin-left: 8.5em;
+  margin-top: 3em;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  color: ${colors.white};
+
+  div h2 {
+    font-size: 32px;
+    font-weight: 100;
+  }
+
+  div h1 {
+    font-size: 32px;
+    font-weight: 900;
+  }
+`

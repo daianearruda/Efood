@@ -5,6 +5,7 @@ export const Card = styled.div`
   background-color: ${colors.white};
   color: ${colors.orange};
   width: 472px;
+  height: 398px;
 
   opacity: 0px;
   text-align: left;
@@ -23,6 +24,7 @@ export const Card = styled.div`
 
   Button {
     margin: 0.5em;
+    margin-top: 1.5em;
   }
 
   .details {
@@ -44,6 +46,7 @@ export const Description = styled.p`
   font-weight: 400;
   line-height: 22px;
   margin: 1em 0.5em;
+  height: 88px;
 `
 
 export const Rating = styled.div`

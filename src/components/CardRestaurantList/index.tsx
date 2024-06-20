@@ -1,24 +1,24 @@
 import CardRestaurant from '../CardRestaurant'
-import Restaurant from '../models/Restaurants'
+import { Restaurante } from '../../pages/Home'
 import { Container, List } from './styles'
 
 export type Props = {
-  restaurants: Restaurant[]
+  restaurants: Restaurante[]
 }
 
 const RestaurantList = ({ restaurants }: Props) => (
   <Container>
     <List>
-      {restaurants.map((rest) => (
+      {restaurants.map((restaurante) => (
         <CardRestaurant
-          type={rest.type ? rest.type : 'highlight'}
-          key={rest.id}
-          category={rest.category}
-          description={rest.description}
-          image={rest.image}
-          imgStar={rest.imgStar}
-          title={rest.title}
-          rating={rest.rating}
+          key={restaurante.id}
+          id={restaurante.id}
+          title={restaurante.titulo}
+          type={restaurante.tipo}
+          description={restaurante.descricao}
+          image={restaurante.capa}
+          rating={parseFloat(restaurante.avaliacao)}
+          destacado={restaurante.destacado}
         />
       ))}
     </List>

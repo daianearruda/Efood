@@ -49,6 +49,15 @@ const ProductRestaurant: Products[] = [
   }
 ]
 
+export type Cardapio = {
+  id: number
+  foto: string
+  preco: number
+  nome: string
+  descricao: string
+  porcao: string
+}
+
 const RestaurantPage = () => (
   <>
     <RestaurantProductHeader />

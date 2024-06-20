@@ -5,20 +5,27 @@ const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
-const RestaurantProductHeader = () => (
-  <HeaderRestaurant>
+type RestaurantProps = {
+  restaurante: {
+    id: number
+    nome: string
+    tipo: string
+    foto: string
+  }
+}
+
+const RestaurantProductHeader = ({ restaurante }: RestaurantProps) => (
+  <HeaderRestaurant backgroundImage={restaurante.foto}>
     <DetailsHeader>
-      <Link to="/" onClick={scrollToTop}>
-        <a href="">Restaurantes</a>
-      </Link>
+      <Link to="/" onClick={scrollToTop}></Link> <a href="">Restaurantes</a>
       <p>0 produto(s) no carrinho</p>
     </DetailsHeader>
     <TitlePhoto>
       <div>
-        <h2>Italiana</h2>
+        <h2>{restaurante.tipo}</h2>
       </div>
       <div>
-        <h1>La Dolce Vita Trattoria</h1>
+        <h1>{restaurante.nome}</h1>
       </div>
     </TitlePhoto>
   </HeaderRestaurant>

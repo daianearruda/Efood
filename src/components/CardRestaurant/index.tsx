@@ -33,12 +33,16 @@ const CardRestaurant = ({
         <Title>{title}</Title>
         <Rating>
           <div>{rating}</div>
-          <img src={imgStar} alt="Estrela" />{' '}
-          {/* Certifique-se de ter a propriedade imgStar definida */}
+          <img src={imgStar} alt="Estrela" />
         </Rating>
       </div>
       <Description>{description}</Description>
-      <Link to={`/restaurantes/${id}`}>
+      <Link
+        to={`/restaurantes/${id}`}
+        onClick={() => {
+          console.log('clicado')
+        }}
+      >
         <Button title={title} background="orange" type={'button'}>
           Saiba mais
         </Button>

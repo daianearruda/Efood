@@ -1,53 +1,7 @@
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import RestaurantProductHeader from '../../components/RestaurantProductHeader'
 import ProductListRestaurant from '../../components/RestaurantProductList'
-import Products from '../../components/models/Products'
-
-import imgProduct from '../../assets/images/imagePizzaProduto.png'
-
-const ProductRestaurant: Products[] = [
-  {
-    id: 1,
-    image: imgProduct,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 2,
-    image: imgProduct,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 3,
-    image: imgProduct,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 4,
-    image: imgProduct,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 5,
-    image: imgProduct,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 6,
-    image: imgProduct,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  }
-]
 
 export type Cardapio = {
   id: number
@@ -58,11 +12,55 @@ export type Cardapio = {
   porcao: string
 }
 
-const RestaurantPage = () => (
-  <>
-    <RestaurantProductHeader />
-    <ProductListRestaurant products={ProductRestaurant} />
-  </>
-)
+type Restaurante = {
+  id: number
+  titulo: string
+  tipo: string
+  avaliacao: number
+  descricao: string
+  capa: string
+  cardapio: Cardapio[]
+}
+
+type RestaurantProps = {
+  id: number
+  nome: string
+  tipo: string
+  foto: string
+}
+
+const RestaurantPage = () => {
+  const { id } = useParams<{ id: string }>()
+  const [restaurante, setRestaurante] = useState<Restaurante | null>(null)
+
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        setRestaurante(data)
+      })
+  }, [id])
+
+  if (!restaurante) {
+    return <p>Restaurante não encontrado.</p>
+  }
+
+  // Supondo que o componente RestaurantProductHeader espera um tipo de propriedades específico
+  const restaurantProps: RestaurantProps = {
+    id: restaurante.id,
+    nome: restaurante.titulo, // Exemplo: Usando o título como nome
+    tipo: restaurante.tipo, // Exemplo: Usando o tipo como tipo
+    foto: restaurante.capa // Exemplo: Usando a capa como foto
+  }
+
+  return (
+    <>
+      <RestaurantProductHeader restaurante={restaurantProps} />
+      <ProductListRestaurant products={restaurante.cardapio} />
+    </>
+  )
+}
 
 export default RestaurantPage

@@ -1,15 +1,17 @@
+import { Link } from 'react-router-dom'
 import Button from '../Button'
 
 import { ProductCard } from './styles'
 
 type Props = {
+  id: number
   image: string
   title: string
   description: string
   openModal: () => void
 }
 
-const Product = ({ image, title, description, openModal }: Props) => {
+const Product = ({ id, image, title, description, openModal }: Props) => {
   return (
     <>
       <ProductCard className="container">
@@ -18,13 +20,14 @@ const Product = ({ image, title, description, openModal }: Props) => {
           <h3>{title}</h3>
           <p>{description}</p>
         </div>
+        <Link to={`/restaurantes/${id}`}></Link>
         <Button
-          title="Adicionar ao carrinho"
+          title="Mais detalhes"
           background="white"
           type="button"
           onClick={openModal}
         >
-          Adicionar ao carrinho
+          Mais detalhes
         </Button>
       </ProductCard>
     </>

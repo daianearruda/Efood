@@ -1,3 +1,5 @@
+// Button.tsx
+
 import { ButtonContainer, ButtonLink } from './styles'
 
 export type Props = {
@@ -6,7 +8,7 @@ export type Props = {
   title: string
   to?: string
   onClick?: () => void
-  children: string
+  children?: string
 }
 
 export const Button = ({
@@ -19,21 +21,17 @@ export const Button = ({
 }: Props) => {
   if (type === 'button') {
     return (
-      <ButtonContainer
-        background={background}
-        type="button"
-        title={title}
-        onClick={onClick}
-      >
+      <ButtonContainer background={background} onClick={onClick}>
         {children}
       </ButtonContainer>
     )
   }
 
   return (
-    <ButtonLink to={to as string} title={title}>
+    <ButtonLink href={to as string} title={title}>
       {children}
     </ButtonLink>
   )
 }
+
 export default Button

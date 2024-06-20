@@ -17,7 +17,11 @@ type RestaurantProps = {
 const RestaurantProductHeader = ({ restaurante }: RestaurantProps) => (
   <HeaderRestaurant backgroundImage={restaurante.foto}>
     <DetailsHeader>
-      <Link to="/" onClick={scrollToTop}></Link> <a href="">Restaurantes</a>
+      <a href="">
+        <Link to="/" onClick={scrollToTop}>
+          Restaurantes
+        </Link>
+      </a>
       <p>0 produto(s) no carrinho</p>
     </DetailsHeader>
     <TitlePhoto>

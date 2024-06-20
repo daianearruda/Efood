@@ -8,7 +8,7 @@ export type Props = {
   title: string
   to?: string
   onClick?: () => void
-  children?: string
+  children?: React.ReactNode
 }
 
 export const Button = ({

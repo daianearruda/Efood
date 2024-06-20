@@ -44,7 +44,7 @@ const RestaurantPage = () => {
   }, [id])
 
   if (!restaurante) {
-    return <p>Restaurante não encontrado.</p>
+    return <p>Carregando...</p>
   }
 
   // Supondo que o componente RestaurantProductHeader espera um tipo de propriedades específico

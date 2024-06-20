@@ -70,13 +70,11 @@ const ProductListRestaurant = ({ products }: Props) => {
 
                 <p>Serve: {selectProduct.porcao}</p>
                 <Button
-                  title={`Adicionar ao carrinho R$${selectProduct.preco.toFixed(
-                    2
-                  )}`}
+                  title={`Adicionar ao carrinho R$`}
                   background="white"
                   type="button"
                 >
-                  Adicionar ao carrinho
+                  {`Adicionar ao carrinho R$${selectProduct.preco.toFixed(2)}`}
                 </Button>
               </ModalContent>
             </div>

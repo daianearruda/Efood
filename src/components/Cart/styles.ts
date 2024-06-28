@@ -12,7 +12,11 @@ export const CartContainer = styled.div`
   height: 100%;
   justify-content: flex-end;
   z-index: 1;
-  display: flex;
+  display: none;
+
+  &.is-open {
+    display: flex;
+  }
 `
 
 export const Overlay = styled.div`

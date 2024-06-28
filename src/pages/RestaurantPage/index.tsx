@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import RestaurantProductHeader from '../../components/RestaurantProductHeader'
 import ProductListRestaurant from '../../components/RestaurantProductList'
 
+import { useGetRestaurantIdQuery } from '../../services/api'
+
 export type Cardapio = {
   id: number
   foto: string
@@ -30,29 +32,18 @@ type RestaurantProps = {
 }
 
 const RestaurantPage = () => {
-  const { id } = useParams<{ id: string }>()
-  const [restaurante, setRestaurante] = useState<Restaurante | null>(null)
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((response) => {
-        return response.json()
-      })
-      .then((data) => {
-        setRestaurante(data)
-      })
-  }, [id])
+  const { id } = useParams()
+  const { data: restaurante } = useGetRestaurantIdQuery(id!)
 
   if (!restaurante) {
     return <p>Carregando...</p>
   }
 
-  // Supondo que o componente RestaurantProductHeader espera um tipo de propriedades específico
   const restaurantProps: RestaurantProps = {
     id: restaurante.id,
-    nome: restaurante.titulo, // Exemplo: Usando o título como nome
-    tipo: restaurante.tipo, // Exemplo: Usando o tipo como tipo
-    foto: restaurante.capa // Exemplo: Usando a capa como foto
+    nome: restaurante.titulo,
+    tipo: restaurante.tipo,
+    foto: restaurante.capa
   }
 
   return (

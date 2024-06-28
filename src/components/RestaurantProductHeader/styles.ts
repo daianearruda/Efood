@@ -38,6 +38,7 @@ export const DetailsHeader = styled.div`
   a {
     text-decoration: none;
     color: ${colors.orange};
+    cursor: pointer;
   }
 `
 export const TitlePhoto = styled.div`

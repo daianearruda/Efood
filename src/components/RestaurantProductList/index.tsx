@@ -12,16 +12,25 @@ import Button from '../Button'
 
 import fechar from '../../assets/images/close.png'
 import { Cardapio } from '../../pages/RestaurantPage'
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart'
 
 export type Props = {
   products: Cardapio[]
 }
 
 const ProductListRestaurant = ({ products }: Props) => {
-  if (!products) {
-    products = [] // Define como um array vazio se products for undefined
-  }
+  const dispatch = useDispatch()
+
   const [selectProduct, setSelectProduct] = useState<Cardapio | null>(null)
+
+  const addToCart = () => {
+    if (selectProduct) {
+      dispatch(add(selectProduct))
+      dispatch(open())
+      handleCloseModal()
+    }
+  }
 
   const handleOpenModal = (product: Cardapio) => {
     setSelectProduct(product)
@@ -70,9 +79,12 @@ const ProductListRestaurant = ({ products }: Props) => {
 
                 <p>Serve: {selectProduct.porcao}</p>
                 <Button
-                  title={`Adicionar ao carrinho R$`}
+                  title={`Adicionar ao carrinho R$${selectProduct.preco.toFixed(
+                    2
+                  )}`}
                   background="white"
                   type="button"
+                  onClick={addToCart} // Adicionar onClick para chamar addToCart
                 >
                   {`Adicionar ao carrinho R$${selectProduct.preco.toFixed(2)}`}
                 </Button>

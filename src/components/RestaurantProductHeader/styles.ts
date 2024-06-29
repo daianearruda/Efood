@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 interface HeaderProps {
   backgroundImage: string
 }
 
 export const HeaderRestaurant = styled.div<HeaderProps>`
+  min-width: 1024px;
   height: 280px;
   margin: 0 auto;
   position: relative;
@@ -39,6 +40,10 @@ export const DetailsHeader = styled.div`
     text-decoration: none;
     color: ${colors.orange};
     cursor: pointer;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      margin-right: 4em;
+    }
   }
 `
 export const TitlePhoto = styled.div`

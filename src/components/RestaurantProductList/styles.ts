@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const ContainerList = styled.section`
+  min-width: 1024px;
   top: 498px;
   left: 171px;
   background-color: ${colors.beige2};
@@ -14,7 +15,16 @@ export const ProductList = styled.ul`
   margin: 0 auto;
   padding-top: 4em;
   padding-bottom: 8em;
-  width: 1024px;
+  max-width: 1024px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    gap: 1em;
+    width: 90%;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const Overlay = styled.div`
@@ -37,6 +47,10 @@ export const Modal = styled.div`
   overflow-y: auto;
   background-color: ${colors.orange};
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 80%;
+  }
 
   .container {
     padding: 2em;

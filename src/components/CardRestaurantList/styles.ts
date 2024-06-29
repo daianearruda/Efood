@@ -6,10 +6,15 @@ export const Container = styled.section`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  width: 100%;
+  min-width: 300px;
+  max-width: 1024px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    max-width: 800px;
+  }
 
   @media (max-width: ${breakpoints.tablet}) {
-    width: 80%;
+    max-width: 100%;
   }
 `
 
@@ -21,12 +26,10 @@ export const List = styled.ul`
   grid-gap: 2em 1em;
   padding-top: 4em;
   padding-bottom: 8em;
+  max-width: 1024px;
 
   @media (max-width: ${breakpoints.desktop}) {
-    width: 92%;
-  }
-
-  @media (max-width: ${breakpoints.tablet}) {
     grid-template-columns: 1fr;
+    grid-gap: 2.5em;
   }
 `

@@ -1,18 +1,11 @@
 import styled from 'styled-components'
-import { breakpoints, colors } from '../../styles'
+import { colors } from '../../styles'
 
 export const Card = styled.div`
   background-color: ${colors.white};
   color: ${colors.orange};
   max-width: 472px;
   height: 398px;
-
-  @media (max-width: ${breakpoints.tablet}) {
-    max-width: 672px;
-    height: 398px;
-    margin-left: 4em;
-    margin-bottom: 2em;
-  }
 
   opacity: 0px;
   text-align: left;
@@ -27,10 +20,6 @@ export const Card = styled.div`
   .photoFood {
     width: 472px;
     height: 217px;
-
-    @media (max-width: ${breakpoints.tablet}) {
-      width: 672px;
-    }
   }
 
   Button {

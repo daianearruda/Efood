@@ -3,20 +3,20 @@ import { Restaurante } from '../../pages/Home'
 import { Cardapio } from '../../pages/RestaurantPage'
 
 type CartState = {
-  items: (Restaurante | Cardapio)[]
   isOpen: boolean
+  items: Cardapio[]
 }
 
 const initialState: CartState = {
-  items: [],
-  isOpen: false
+  isOpen: false,
+  items: []
 }
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    add: (state, action: PayloadAction<Restaurante | Cardapio>) => {
+    add: (state, action: PayloadAction<Cardapio>) => {
       const item = state.items.find((i) => i.id === action.payload.id)
       if (!item) {
         state.items.push(action.payload)

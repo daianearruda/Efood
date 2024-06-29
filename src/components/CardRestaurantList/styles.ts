@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
 
 export const Container = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 0 auto; /* Centraliza horizontalmente o Container */
+  width: 100%; /* Garante que o Container ocupe toda a largura disponível */
 `
 
 export const List = styled.ul`

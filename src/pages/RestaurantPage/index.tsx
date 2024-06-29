@@ -14,16 +14,6 @@ export type Cardapio = {
   porcao: string
 }
 
-type Restaurante = {
-  id: number
-  titulo: string
-  tipo: string
-  avaliacao: number
-  descricao: string
-  capa: string
-  cardapio: Cardapio[]
-}
-
 type RestaurantProps = {
   id: number
   nome: string

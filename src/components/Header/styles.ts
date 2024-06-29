@@ -1,12 +1,19 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
 
+import imgBackgroundHeader from '../../assets/images/fundo.png'
+
 export const HeaderBar = styled.header`
   padding: 2em;
   color: ${colors.orange};
   text-align: center;
+  align-items: center;
   position: relative;
   height: 384px;
+  min-width: 1024px;
+  background-image: url('${imgBackgroundHeader}');
+  background-size: cover; /* Garante que a imagem cubra todo o contêiner */
+  background-position: center;
 
   .container {
     display: flex;

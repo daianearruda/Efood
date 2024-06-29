@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { colors } from '../../styles'
 
 interface HeaderProps {
-  backgroundImage: string // Definir a propriedade backgroundImage
+  backgroundImage: string
 }
 
 export const HeaderRestaurant = styled.div<HeaderProps>`

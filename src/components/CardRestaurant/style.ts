@@ -4,7 +4,7 @@ import { colors } from '../../styles'
 export const Card = styled.div`
   background-color: ${colors.white};
   color: ${colors.orange};
-  width: 472px;
+  max-width: 472px;
   height: 398px;
 
   opacity: 0px;

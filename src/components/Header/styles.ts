@@ -10,10 +10,12 @@ export const HeaderBar = styled.header`
   align-items: center;
   position: relative;
   height: 384px;
-  min-width: 300px;
+  width: 100%; /* Largura total */
+  min-width: 400px;
   background-image: url('${imgBackgroundHeader}');
   background-size: cover; /* Garante que a imagem cubra todo o contêiner */
   background-position: center;
+  background-repeat: no-repeat;
 
   .container {
     display: flex;

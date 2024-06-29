@@ -27,6 +27,7 @@ export const Card = styled.div`
   .photoFood {
     width: 472px;
     height: 217px;
+
     @media (max-width: ${breakpoints.tablet}) {
       width: 672px;
     }

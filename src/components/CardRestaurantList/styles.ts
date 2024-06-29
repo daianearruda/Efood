@@ -9,7 +9,7 @@ export const Container = styled.section`
   width: 100%;
 
   @media (max-width: ${breakpoints.tablet}) {
-    width: 90%;
+    width: 80%;
   }
 `
 
@@ -23,12 +23,10 @@ export const List = styled.ul`
   padding-bottom: 8em;
 
   @media (max-width: ${breakpoints.desktop}) {
-    width: 90%;
-    margin: 0 2em 0 0;
+    width: 92%;
   }
 
   @media (max-width: ${breakpoints.tablet}) {
     grid-template-columns: 1fr;
-    width: 80%;
   }
 `

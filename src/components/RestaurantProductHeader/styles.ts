@@ -24,6 +24,10 @@ export const HeaderRestaurant = styled.div<HeaderProps>`
   text-align: center;
   min-width: 100%; /* Largura total */
   min-width: 300px;
+
+  @media (max-width: 400px) {
+    padding: 2em 0;
+  }
 `
 
 export const DetailsHeader = styled.div`
@@ -74,15 +78,18 @@ export const TitlePhoto = styled.div`
     @media (max-width: 400px) {
       font-size: 25px;
       margin: 1em auto;
+      padding: 0 1em;
     }
   }
 
   div h1 {
     font-size: 32px;
     font-weight: 900;
+
     @media (max-width: 400px) {
       font-size: 25px;
-      margin: 0 0 2.5em 0;
+      margin: 1em auto;
+      padding: 0 1em;
     }
   }
 `

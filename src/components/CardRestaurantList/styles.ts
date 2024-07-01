@@ -6,7 +6,7 @@ export const Container = styled.section`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  min-width: 300px;
+  min-width: 400px;
   max-width: 1024px;
 
   @media (max-width: ${breakpoints.desktop}) {
@@ -23,14 +23,16 @@ export const List = styled.ul`
   grid-template-columns: 1fr 1fr;
   list-style: none;
   margin: 0 auto;
-  grid-gap: 2em 1em;
+  grid-gap: 4em;
   padding-top: 4em;
   padding-bottom: 8em;
   max-width: 1024px;
 
   @media (max-width: ${breakpoints.desktop}) {
     grid-template-columns: 1fr;
-    grid-gap: 2.5em;
-    margin: 0 1em;
+  }
+
+  @media (max-width: 400px) {
+    max-width: 80%;
   }
 `

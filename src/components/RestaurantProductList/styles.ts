@@ -59,12 +59,20 @@ export const Modal = styled.div`
     padding: 2em;
     display: flex;
     position: relative;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      display: block;
+    }
   }
 
   .imgTest {
     img {
       width: 280px;
       height: 280px;
+      @media (max-width: ${breakpoints.tablet}) {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 import close from '../../assets/images/lixeira.png'
 import { ButtonContainer } from '../Button/styles'
@@ -35,6 +35,10 @@ export const Sidebar = styled.aside`
   max-width: 360px;
   width: 100%;
 
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 60%;
+  }
+
   ${ButtonContainer} {
     max-width: 100%;
     width: 100%;
@@ -53,6 +57,10 @@ export const CartItem = styled.li`
   h3 {
     font-size: 18px;
     font-weight: 900;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 14px;
+    }
   }
 
   span {

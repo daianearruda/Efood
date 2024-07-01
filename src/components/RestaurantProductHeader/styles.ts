@@ -10,8 +10,7 @@ export const HeaderRestaurant = styled.div<HeaderProps>`
   height: 280px;
   margin: 0 auto;
   position: relative;
-  background-image: ${({ backgroundImage }) =>
-    `url(${backgroundImage})`}; // Usar a propriedade no estilo
+  background-image: ${({ backgroundImage }) => `url(${backgroundImage})`};
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -23,7 +22,7 @@ export const HeaderRestaurant = styled.div<HeaderProps>`
   font-weight: 900;
   line-height: 21.09px;
   text-align: center;
-  min-width: 100%; /* Largura total */
+  min-width: 100%;
   min-width: 400px;
 `
 

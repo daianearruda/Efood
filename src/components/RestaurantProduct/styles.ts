@@ -31,7 +31,7 @@ export const ProductCard = styled.div`
       max-width: 98%;
     }
 
-    @media (max-width: 350px) {
+    @media (max-width: 370px) {
       min-width: 78%;
     }
   }

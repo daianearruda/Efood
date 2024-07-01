@@ -94,6 +94,10 @@ export const ModalContent = styled.div`
   padding: 0 1em;
   color: ${colors.beige2};
 
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 1em 0 0;
+  }
+
   h5 {
     font-size: 18px;
     font-weight: 900;
@@ -110,5 +114,10 @@ export const ModalContent = styled.div`
   Button {
     width: 218px;
     height: 24px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      width: 100%;
+      height: auto;
+    }
   }
 `

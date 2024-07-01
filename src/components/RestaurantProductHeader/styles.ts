@@ -23,10 +23,12 @@ export const HeaderRestaurant = styled.div<HeaderProps>`
   font-weight: 900;
   line-height: 21.09px;
   text-align: center;
+  min-width: 100%; /* Largura total */
+  min-width: 400px;
 `
 
 export const DetailsHeader = styled.div`
-  width: 1024px;
+  max-width: 1024px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -42,7 +44,7 @@ export const DetailsHeader = styled.div`
   }
 `
 export const TitlePhoto = styled.div`
-  width: 1024px;
+  max-width: 1024px;
   margin: 2em auto;
   height: 380px;
   justify-content: space-around;

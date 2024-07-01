@@ -5,24 +5,15 @@ export const ContainerList = styled.section`
   margin: 0 auto;
   background-color: ${colors.beige2};
   padding: 1em;
-
-  min-width: 300px; /* Largura mínima inicial */
-  max-width: 1024px; /* Largura máxima padrão */
-
-  @media (max-width: ${breakpoints.desktop}) {
-    min-width: 800px; /* Ajuste para telas de desktop */
-  }
-
-  @media (max-width: ${breakpoints.tablet}) {
-    max-width: 100%; /* Ocupa a largura máxima em telas menores que tablet */
-  }
+  min-width: 100%; /* Largura total */
+  min-width: 400px;
 `
 
 export const ProductList = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2em;
-  margin: 0 auto; /* Centraliza horizontalmente */
+  margin: 0 auto;
   padding-top: 4em;
   padding-bottom: 8em;
   max-width: 1024px;
@@ -30,9 +21,7 @@ export const ProductList = styled.ul`
 
   @media (max-width: ${breakpoints.desktop}) {
     grid-template-columns: 1fr 1fr;
-    gap: 1em; /* Reduz o espaçamento entre os itens do grid */
-    margin: 0 auto; /* Centraliza novamente para telas menores */
-    max-width: 800px; /* Largura máxima ajustada para telas de desktop */
+    gap: 1em;
     padding: 1em; /* Ajusta o padding para não ultrapassar a largura máxima */
   }
 

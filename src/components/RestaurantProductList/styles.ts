@@ -56,6 +56,10 @@ export const Modal = styled.div`
     width: 80%;
   }
 
+  @media (max-width: ${breakpoints.tablet}) {
+    top: 50%;
+  }
+
   .container {
     padding: 2em;
     display: flex;

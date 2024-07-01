@@ -11,7 +11,7 @@ export const HeaderBar = styled.header`
   position: relative;
   height: 384px;
   min-width: 100%; /* Largura total */
-  min-width: 400px;
+  min-width: 300px;
   background-image: url('${imgBackgroundHeader}');
   background-size: cover; /* Garante que a imagem cubra todo o contêiner */
   background-position: center;
@@ -42,7 +42,7 @@ export const Title = styled.h3`
 
   @media (max-width: ${breakpoints.tablet}) {
     font-size: 28px;
-    width: 350px;
+    width: 300px;
     margin-bottom: 2em;
   }
 `

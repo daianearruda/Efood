@@ -6,7 +6,8 @@ export const Container = styled.section`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  min-width: 400px;
+  min-width: 100%; /* Largura total */
+  min-width: 300px;
   max-width: 1024px;
 
   @media (max-width: ${breakpoints.desktop}) {

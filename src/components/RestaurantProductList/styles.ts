@@ -6,7 +6,7 @@ export const ContainerList = styled.section`
   background-color: ${colors.beige2};
   padding: 1em;
   min-width: 100%; /* Largura total */
-  min-width: 400px;
+  min-width: 300px;
 `
 
 export const ProductList = styled.ul`
@@ -17,7 +17,8 @@ export const ProductList = styled.ul`
   padding-top: 4em;
   padding-bottom: 8em;
   max-width: 1024px;
-  width: 100%;
+  min-width: 100%; /* Largura total */
+  min-width: 300px;
 
   @media (max-width: ${breakpoints.desktop}) {
     grid-template-columns: 1fr 1fr;

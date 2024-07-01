@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import { colors } from '../../styles'
 
 export const FooterContainer = styled.footer`
-  min-width: 400px;
+  min-width: 100%; /* Largura total */
+  min-width: 300px;
   height: 298px;
   background-color: ${colors.beige};
   margin: 0 auto;

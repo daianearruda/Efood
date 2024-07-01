@@ -18,10 +18,12 @@ export const ProductCard = styled.div`
     min-height: 258px;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    max-width: 304px; /* Largura máxima do imagem */
+
+    max-height: 304px;
 
     @media (max-width: ${breakpoints.desktop}) {
-      max-width: 328px; /* Reduz a largura máxima da imagem em telas menores */
+      min-width: 328px; /* Reduz a largura máxima da imagem em telas menores */
+      height: 280px;
     }
 
     @media (max-width: ${breakpoints.tablet}) {
@@ -50,7 +52,7 @@ export const ProductCard = styled.div`
     margin-bottom: 0.5em;
 
     @media (max-width: ${breakpoints.desktop}) {
-      max-width: 328px; /* Reduz a largura máxima da imagem em telas menores */
+      min-width: 328px; /* Reduz a largura máxima da imagem em telas menores */
     }
 
     @media (max-width: ${breakpoints.tablet}) {

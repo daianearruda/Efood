@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 interface HeaderProps {
   backgroundImage: string
@@ -40,6 +40,21 @@ export const DetailsHeader = styled.div`
     text-decoration: none;
     color: ${colors.orange};
     cursor: pointer;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 16px;
+    margin-top: -9.5em;
+    flex-wrap: wrap; /* Permite que os elementos dentro do flex-container quebrem para uma nova linha */
+
+    a {
+      flex-basis: 30%; /* Faz com que o link ocupe toda a largura disponível quando quebrar para uma nova linha */
+    }
+  }
+
+  @media (max-width: 400px) {
+    font-size: 14px;
+    margin-top: -11em;
   }
 `
 export const TitlePhoto = styled.div`

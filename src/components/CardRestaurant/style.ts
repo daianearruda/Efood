@@ -99,6 +99,20 @@ export const Description = styled.p`
   margin: 1em 0.5em;
   word-wrap: break-word;
   white-space: normal;
+
+  height: 110px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 150px;
+  }
+
+  @media (max-width: 400px) {
+    height: 160px;
+  }
+
+  @media (max-width: 360px) {
+    height: 200px;
+  }
 `
 
 export const Rating = styled.div`

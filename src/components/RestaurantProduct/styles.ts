@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { breakpoints, colors } from '../../styles'
 
 export const ProductCard = styled.div`
+  min-width: 240px;
   align-items: center;
   max-width: 100%;
   background-color: ${colors.orange};
@@ -11,23 +12,27 @@ export const ProductCard = styled.div`
   flex-direction: column;
   justify-content: space-between;
   text-align: start;
-  padding: 1em; /* Adiciona padding para espaçamento interno */
+  padding: 1em;
+  margin: 0 auto;
 
   img {
     width: 100%;
     min-height: 258px;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-
     max-height: 304px;
 
     @media (max-width: ${breakpoints.desktop}) {
-      min-width: 328px; /* Reduz a largura máxima da imagem em telas menores */
+      min-width: 280px; /* Reduz a largura máxima da imagem em telas menores */
       height: 280px;
     }
 
     @media (max-width: ${breakpoints.tablet}) {
-      max-width: 704px; /* Reduz a largura máxima da imagem em telas menores */
+      max-width: 98%;
+    }
+
+    @media (max-width: 350px) {
+      min-width: 78%;
     }
   }
 
@@ -48,19 +53,11 @@ export const ProductCard = styled.div`
 
   Button {
     width: 100%;
-    max-width: 304px; /* Largura máxima do botão */
+    min-width: 250px; /* Largura máxima do botão */
     margin-bottom: 0.5em;
-
-    @media (max-width: ${breakpoints.desktop}) {
-      min-width: 328px; /* Reduz a largura máxima da imagem em telas menores */
-    }
-
-    @media (max-width: ${breakpoints.tablet}) {
-      max-width: 704px; /* Reduz a largura máxima da imagem em telas menores */
-    }
   }
 
   .textContainer {
-    margin: 0.5em 0; /* Adiciona margem vertical */
+    margin: 0.5em 0;
   }
 `

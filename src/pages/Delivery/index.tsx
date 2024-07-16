@@ -8,7 +8,7 @@ import ReactInputMask from 'react-input-mask'
 import { CustomSidebar, DivInputs, Row } from './styles'
 import Button from '../../components/Button'
 import { useDispatch, useSelector } from 'react-redux'
-import { clear, open } from '../../store/reducers/cart'
+import { clear, open, close } from '../../store/reducers/cart'
 import { RootReducer } from '../../store'
 import { useFormik } from 'formik'
 
@@ -16,7 +16,7 @@ const Delivery = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { items } = useSelector((state: RootReducer) => state.cart)
-  const [purchase, { isSuccess, isLoading }] = usePurchaseMutation()
+  const [purchase, { isSuccess, isLoading, data }] = usePurchaseMutation()
   const [showPayment, setShowPayment] = useState(false)
   const [paymentData, setPaymentData] = useState({
     name: '',
@@ -32,8 +32,13 @@ const Delivery = () => {
       description: '',
       city: '',
       zipCode: '',
-      number: '',
-      complement: ''
+      addressNumber: '',
+      cardNumber: '',
+      complement: '',
+      name: '',
+      code: '',
+      month: '',
+      year: ''
     },
     validationSchema: Yup.object({
       receiver: Yup.string()
@@ -49,9 +54,24 @@ const Delivery = () => {
         .min(9, 'O CEP deve ter 8 caracteres')
         .max(9, 'O CEP deve ter 8 caracteres')
         .required('O campo é obrigatório'),
-      number: Yup.number()
+      addressNumber: Yup.number()
         .min(1, 'O número deve ter pelo menos 1 caractere')
-        .required('O campo é obrigatório')
+        .required('O campo é obrigatório'),
+      name: Yup.string().when((values, schema) =>
+        paymentData ? schema.required('O campo é obrigatório') : schema
+      ),
+      cardNumber: Yup.string().when((values, schema) =>
+        paymentData ? schema.required('O campo é obrigatório') : schema
+      ),
+      code: Yup.string().when((values, schema) =>
+        paymentData ? schema.required('O campo é obrigatório') : schema
+      ),
+      month: Yup.string().when((values, schema) =>
+        paymentData ? schema.required('O campo é obrigatório') : schema
+      ),
+      year: Yup.string().when((values, schema) =>
+        paymentData ? schema.required('O campo é obrigatório') : schema
+      )
     }),
     onSubmit: (values) => {
       purchase({
@@ -61,7 +81,7 @@ const Delivery = () => {
             description: values.description,
             city: values.city,
             zipCode: values.zipCode,
-            number: parseInt(values.number),
+            number: parseInt(values.addressNumber),
             complement: values.complement
           }
         },
@@ -71,12 +91,12 @@ const Delivery = () => {
         })),
         payment: {
           card: {
-            name: paymentData.name,
-            number: paymentData.number,
-            code: parseInt(paymentData.code),
+            name: values.name,
+            number: values.cardNumber,
+            code: parseInt(values.code),
             expires: {
-              month: parseInt(paymentData.month),
-              year: parseInt(paymentData.year)
+              month: parseInt(values.month),
+              year: parseInt(values.year)
             }
           }
         }
@@ -117,12 +137,21 @@ const Delivery = () => {
     }
   }
 
+  const closeCard = () => {
+    dispatch(close())
+    navigate('/')
+  }
+
   const toShowPayment = () => {
     setShowPayment(true)
   }
 
   const backToAddress = () => {
     setShowPayment(false)
+  }
+
+  const getTotalPrice = () => {
+    return items.reduce((total, item) => total + item.preco, 0).toFixed(2)
   }
 
   return (
@@ -184,15 +213,17 @@ const Delivery = () => {
                   />
                 </DivInputs>
                 <DivInputs maxWidth="46%">
-                  <label htmlFor="number">Número</label>
+                  <label htmlFor="addressNumber">Número</label>
                   <input
                     type="text"
-                    id="number"
-                    name="number"
-                    value={form.values.number}
+                    id="addressNumber"
+                    name="addressNumber"
+                    value={form.values.addressNumber}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
-                    className={checkInputHasError('number') ? 'error' : ''}
+                    className={
+                      checkInputHasError('addressNumber') ? 'error' : ''
+                    }
                   />
                 </DivInputs>
               </Row>
@@ -221,7 +252,9 @@ const Delivery = () => {
                 background="white"
                 type="button"
                 title="Voltar para o carrinho"
-                onClick={closeCart}
+                onClick={() => {
+                  closeCart()
+                }}
               >
                 Voltar para o carrinho
               </Button>
@@ -229,95 +262,145 @@ const Delivery = () => {
           </CustomSidebar>
         </CartContainer>
       ) : (
-        <CartContainer className="is-open">
-          <Overlay onClick={closeCart} />
-          <CustomSidebar>
-            <h2>Pagamento</h2>
-            <form onSubmit={form.handleSubmit}>
-              <DivInputs>
-                <label htmlFor="name">Nome no cartão</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={paymentData.name}
-                  onChange={form.handleChange}
-                  onBlur={form.handleBlur}
-                  className={checkInputHasError('name') ? 'error' : ''}
-                />
-              </DivInputs>
-              <Row>
-                <DivInputs maxWidth="70%">
-                  <label htmlFor="number">Número do cartão</label>
-                  <input
-                    type="text"
-                    id="number"
-                    name="number"
-                    value={paymentData.number}
-                    onChange={form.handleChange}
-                    onBlur={form.handleBlur}
-                    className={checkInputHasError('number') ? 'error' : ''}
-                  />
-                </DivInputs>
-                <DivInputs maxWidth="20%">
-                  <label htmlFor="code">CVV</label>
-                  <input
-                    type="text"
-                    id="code"
-                    name="code"
-                    value={paymentData.code}
-                    onChange={form.handleChange}
-                    onBlur={form.handleBlur}
-                    className={checkInputHasError('code') ? 'error' : ''}
-                  />
-                </DivInputs>
-              </Row>
-              <Row>
-                <DivInputs maxWidth="46%">
-                  <label htmlFor="month">Mês de vencimento</label>
-                  <input
-                    type="text"
-                    id="month"
-                    name="month"
-                    value={paymentData.month}
-                    onChange={form.handleChange}
-                    onBlur={form.handleBlur}
-                    className={checkInputHasError('month') ? 'error' : ''}
-                  />
-                </DivInputs>
-                <DivInputs maxWidth="46%">
-                  <label htmlFor="year">Ano de vencimento</label>
-                  <input
-                    type="text"
-                    id="year"
-                    name="year"
-                    value={paymentData.year}
-                    onChange={form.handleChange}
-                    onBlur={form.handleBlur}
-                    className={checkInputHasError('year') ? 'error' : ''}
-                  />
-                </DivInputs>
-              </Row>
+        <>
+          {isSuccess && data ? (
+            <>
+              <CartContainer className="is-open">
+                <Overlay onClick={closeCart} />
+                <CustomSidebar>
+                  <h2>Pedido realizado - {data?.orderId} </h2>
+                  <p>
+                    Estamos felizes em informar que seu pedido já está em
+                    processo de preparação e, em breve, será entregue no
+                    endereço fornecido.
+                  </p>
+                  <p>
+                    Gostaríamos de ressaltar que nossos entregadores não estão
+                    autorizados a realizar cobranças extras.
+                  </p>
+                  <p>
+                    Lembre-se da importância de higienizar as mãos após o
+                    recebimento do pedido, garantindo assim sua segurança e
+                    bem-estar durante a refeição.
+                  </p>
+                  <p>
+                    Esperamos que desfrute de uma deliciosa e agradável
+                    experiência gastronômica. Bom apetite!
+                  </p>
+                  <Button
+                    title="concluir"
+                    background="white"
+                    type="button"
+                    onClick={closeCard}
+                    disabled={isLoading}
+                  >
+                    {' '}
+                    Concluir
+                  </Button>
+                </CustomSidebar>
+              </CartContainer>
+            </>
+          ) : (
+            <>
+              <CartContainer className="is-open">
+                <Overlay onClick={closeCart} />
+                <CustomSidebar>
+                  <h2>Pagamento - Valor a pagar {getTotalPrice()}</h2>
+                  <form onSubmit={form.handleSubmit}>
+                    <DivInputs>
+                      <label htmlFor="name">Nome no cartão</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={form.values.name}
+                        onChange={form.handleChange}
+                        onBlur={form.handleBlur}
+                        className={checkInputHasError('name') ? 'error' : ''}
+                      />
+                    </DivInputs>
+                    <Row>
+                      <DivInputs maxWidth="70%">
+                        <label htmlFor="cardNumber">Número do cartão</label>
+                        <ReactInputMask
+                          type="text"
+                          id="cardNumber"
+                          name="cardNumber"
+                          value={form.values.cardNumber}
+                          onChange={form.handleChange}
+                          onBlur={form.handleBlur}
+                          className={
+                            checkInputHasError('cardNumber') ? 'error' : ''
+                          }
+                          mask={'9999 9999 9999 9999'}
+                        />
+                      </DivInputs>
+                      <DivInputs maxWidth="20%">
+                        <label htmlFor="code">CVV</label>
+                        <ReactInputMask
+                          type="text"
+                          id="code"
+                          name="code"
+                          value={form.values.code}
+                          onChange={form.handleChange}
+                          onBlur={form.handleBlur}
+                          className={checkInputHasError('code') ? 'error' : ''}
+                          mask={'999'}
+                        />
+                      </DivInputs>
+                    </Row>
+                    <Row>
+                      <DivInputs maxWidth="46%">
+                        <label htmlFor="month">Mês de vencimento</label>
+                        <ReactInputMask
+                          type="text"
+                          id="month"
+                          name="month"
+                          value={form.values.month}
+                          onChange={form.handleChange}
+                          onBlur={form.handleBlur}
+                          className={checkInputHasError('month') ? 'error' : ''}
+                          mask={'99'}
+                        />
+                      </DivInputs>
+                      <DivInputs maxWidth="46%">
+                        <label htmlFor="year">Ano de vencimento</label>
+                        <ReactInputMask
+                          type="text"
+                          id="year"
+                          name="year"
+                          value={form.values.year}
+                          onChange={form.handleChange}
+                          onBlur={form.handleBlur}
+                          className={checkInputHasError('year') ? 'error' : ''}
+                          mask={'9999'}
+                        />
+                      </DivInputs>
+                    </Row>
 
-              <Button
-                background="white"
-                type="submit"
-                title="Enviar Pagamento"
-                disabled={isLoading}
-              >
-                {isLoading ? 'Enviando...' : 'Enviar Pagamento'}
-              </Button>
-              <Button
-                background="white"
-                type="button"
-                title="Voltar ao endereço"
-                onClick={backToAddress}
-              >
-                Voltar ao endereço
-              </Button>
-            </form>
-          </CustomSidebar>
-        </CartContainer>
+                    <Button
+                      background="white"
+                      type="submit"
+                      title="Enviar Pagamento"
+                      disabled={isLoading}
+                      onClick={form.handleSubmit}
+                    >
+                      {isLoading ? 'Enviando...' : 'Enviar Pagamento'}
+                    </Button>
+                    <Button
+                      background="white"
+                      type="button"
+                      title="Voltar ao endereço"
+                      onClick={backToAddress}
+                    >
+                      Voltar ao endereço
+                    </Button>
+                  </form>
+                </CustomSidebar>
+              </CartContainer>
+            </>
+          )}
+        </>
       )}
     </div>
   )

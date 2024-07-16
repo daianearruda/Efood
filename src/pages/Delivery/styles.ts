@@ -7,11 +7,19 @@ type InputGroupProps = {
 }
 
 export const CustomSidebar = styled(OriginalSidebar)`
+  p {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 1em;
+    color: ${colors.beige};
+  }
+
   h2 {
     color: ${colors.beige};
     font-size: 16px;
     font-weight: 700;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
   }
 
   form {

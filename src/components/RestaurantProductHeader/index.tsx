@@ -35,7 +35,9 @@ const RestaurantProductHeader = ({ restaurante }: RestaurantProps) => {
             Restaurantes
           </Link>
         </a>
-        <a onClick={openCart}>{items.length} produto(s) no carrinho</a>
+        <a role="button" onClick={openCart}>
+          {items.length} <span>produto(s) no carrinho</span>
+        </a>
       </DetailsHeader>
       <TitlePhoto>
         <div>

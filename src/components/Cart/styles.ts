@@ -44,6 +44,13 @@ export const Sidebar = styled.aside`
     width: 100%;
     height: 24px;
   }
+
+  .emptyText {
+    font-size: 14px;
+    line-height: 22px;
+    color: ${colors.beige2};
+    text-align: center;
+  }
 `
 
 export const CartItem = styled.li`

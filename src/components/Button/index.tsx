@@ -4,11 +4,12 @@ import { ButtonContainer, ButtonLink } from './styles'
 
 export type Props = {
   background: 'orange' | 'white'
-  type: 'button' | 'link'
+  type: 'button' | 'link' | 'submit'
   title: string
   to?: string
   onClick?: () => void
   children?: React.ReactNode
+  disabled?: boolean
 }
 
 export const Button = ({
@@ -17,11 +18,17 @@ export const Button = ({
   title,
   to,
   children,
+  disabled,
   onClick
 }: Props) => {
-  if (type === 'button') {
+  if (type === 'button' || type === 'submit') {
     return (
-      <ButtonContainer background={background} onClick={onClick}>
+      <ButtonContainer
+        background={background}
+        onClick={onClick}
+        type={type}
+        disabled={disabled}
+      >
         {children}
       </ButtonContainer>
     )

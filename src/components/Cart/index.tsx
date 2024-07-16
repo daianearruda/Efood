@@ -33,29 +33,38 @@ const Cart = () => {
     <CartContainer className={isOpen ? 'is-open' : ''}>
       <Overlay onClick={closeCart} />
       <Sidebar>
-        <ul>
-          {items.map((item) => (
-            <CartItem key={item.id}>
-              <img src={item.foto} alt={item.nome} />
-              <div>
-                <h3>{item.nome}</h3>
-                <span>$ {item.preco.toFixed(2)}</span>
-              </div>
-              <button type="button" onClick={() => removeItem(item.id)} />
-            </CartItem>
-          ))}
-        </ul>
-        <Prices>
-          Valor total <span>R$ {getTotalPrice()}</span>
-        </Prices>
-        <Button
-          background="white"
-          type="button"
-          title="Continuar com a entrega"
-          onClick={goToDelivery}
-        >
-          Continuar com a entrega
-        </Button>
+        {items.length > 0 ? (
+          <>
+            <ul>
+              {items.map((item) => (
+                <CartItem key={item.id}>
+                  <img src={item.foto} alt={item.nome} />
+                  <div>
+                    <h3>{item.nome}</h3>
+                    <span>$ {item.preco.toFixed(2)}</span>
+                  </div>
+                  <button type="button" onClick={() => removeItem(item.id)} />
+                </CartItem>
+              ))}
+            </ul>
+            <Prices>
+              Valor total <span>R$ {getTotalPrice()}</span>
+            </Prices>
+            <Button
+              background="white"
+              type="button"
+              title="Continuar com a entrega"
+              onClick={goToDelivery}
+            >
+              Continuar com a entrega
+            </Button>
+          </>
+        ) : (
+          <p className="emptyText">
+            O carrinho está vazio, adicione um produto para continuar com a
+            compra
+          </p>
+        )}
       </Sidebar>
     </CartContainer>
   )

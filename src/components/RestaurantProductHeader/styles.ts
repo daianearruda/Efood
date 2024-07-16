@@ -40,7 +40,8 @@ export const DetailsHeader = styled.div`
   box-sizing: border-box;
   z-index: 2;
 
-  a {
+  a,
+  span {
     text-decoration: none;
     color: ${colors.orange};
     cursor: pointer;

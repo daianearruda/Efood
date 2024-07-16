@@ -7,9 +7,8 @@ type InputGroupProps = {
 }
 
 export const CustomSidebar = styled(OriginalSidebar)`
-  /* Adicione aqui os estilos específicos para o componente Delivery */
   h2 {
-    color: ${colors.beige}; /* Exemplo: Alterar a cor do título */
+    color: ${colors.beige};
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 1em;
@@ -44,6 +43,9 @@ export const DivInputs = styled.div<InputGroupProps>`
     height: 32px;
     border: none;
     background-color: ${colors.beige};
+    &.error {
+      border: 1px solid red;
+    }
   }
 `
 

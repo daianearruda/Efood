@@ -5,10 +5,12 @@ import Button from '../Button'
 import { CartContainer, Overlay, Sidebar, CartItem, Prices } from './styles'
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
+import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const closeCart = () => {
     dispatch(close())
@@ -20,6 +22,11 @@ const Cart = () => {
 
   const removeItem = (id: number) => {
     dispatch(remove(id))
+  }
+
+  const goToDelivery = () => {
+    navigate('/delivery')
+    closeCart()
   }
 
   return (
@@ -45,6 +52,7 @@ const Cart = () => {
           background="white"
           type="button"
           title="Continuar com a entrega"
+          onClick={goToDelivery}
         >
           Continuar com a entrega
         </Button>

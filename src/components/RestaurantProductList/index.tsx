@@ -77,7 +77,7 @@ const ProductListRestaurant = ({ products }: Props) => {
                   )}`}
                   background="white"
                   type="button"
-                  onClick={addToCart} // Adicionar onClick para chamar addToCart
+                  onClick={addToCart}
                 >
                   {`Adicionar ao carrinho R$ ${selectProduct.preco.toFixed(2)}`}
                 </Button>

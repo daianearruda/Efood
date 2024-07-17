@@ -55,6 +55,8 @@ export const ProductCard = styled.div`
     width: 100%;
     min-width: 250px; /* Largura máxima do botão */
     margin-bottom: 0.5em;
+    line-height: 0px;
+    align-items: center;
   }
 
   .textContainer {

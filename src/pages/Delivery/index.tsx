@@ -379,19 +379,19 @@ const Delivery = () => {
                     <Button
                       background="white"
                       type="submit"
-                      title="Enviar Pagamento"
+                      title="Finalizar pagamento"
                       disabled={isLoading}
                       onClick={form.handleSubmit}
                     >
-                      {isLoading ? 'Enviando...' : 'Enviar Pagamento'}
+                      {isLoading ? 'Enviando...' : 'Finalizar pagamento'}
                     </Button>
                     <Button
                       background="white"
                       type="button"
-                      title="Voltar ao endereço"
+                      title="Voltar para a edição de endereço"
                       onClick={backToAddress}
                     >
-                      Voltar ao endereço
+                      Voltar para a edição de endereço
                     </Button>
                   </form>
                 </S.CustomSidebar>

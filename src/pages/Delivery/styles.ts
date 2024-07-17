@@ -24,11 +24,10 @@ export const CustomSidebar = styled(OriginalSidebar)`
 
   form {
     width: 94%;
-
-    button {
-      margin-top: 16px;
-      width: 100%;
-    }
+  }
+  button {
+    margin-top: 16px;
+    width: 100%;
   }
 `
 

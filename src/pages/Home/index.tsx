@@ -1,4 +1,5 @@
 import CardRestaurantList from '../../components/CardRestaurantList'
+import Loader from '../../components/Loader'
 import { useGetRestaurantQuery } from '../../services/api'
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
       </>
     )
   }
-  return <h4>Carregando</h4>
+  return <Loader />
 }
 
 export default Home

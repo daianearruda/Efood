@@ -120,6 +120,19 @@ const Delivery = () => {
     }
   }, [isSuccess, dispatch])
 
+  useEffect(() => {
+    if (showPayment) {
+      form.setValues({
+        ...form.values,
+        name: '',
+        cardNumber: '',
+        code: '',
+        month: '',
+        year: ''
+      })
+    }
+  }, [showPayment])
+
   if (items.length === 0 && !isLoading && !isSuccess) {
     return <Navigate to="/" />
   }
@@ -144,8 +157,22 @@ const Delivery = () => {
     navigate('/')
   }
 
-  const toShowPayment = () => {
-    setShowPayment(true)
+  const toShowPayment = async () => {
+    const inputElements = document.querySelectorAll('input')
+    const allInputsEmpty = Array.from(inputElements).every(
+      (input) => input.value === ''
+    )
+
+    if (document.querySelectorAll('.error').length === 0 && !allInputsEmpty) {
+      setPaymentData({
+        name: '',
+        number: '',
+        code: '',
+        month: '',
+        year: ''
+      })
+      setShowPayment(true)
+    }
   }
 
   const backToAddress = () => {

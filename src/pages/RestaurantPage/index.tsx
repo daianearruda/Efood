@@ -3,6 +3,7 @@ import RestaurantProductHeader from '../../components/RestaurantProductHeader'
 import ProductListRestaurant from '../../components/RestaurantProductList'
 
 import { useGetRestaurantIdQuery } from '../../services/api'
+import Loader from '../../components/Loader'
 
 type RestaurantProps = {
   id: number
@@ -16,7 +17,7 @@ const RestaurantPage = () => {
   const { data: restaurante } = useGetRestaurantIdQuery(id!)
 
   if (!restaurante) {
-    return <p>Carregando...</p>
+    return <Loader />
   }
 
   const restaurantProps: RestaurantProps = {

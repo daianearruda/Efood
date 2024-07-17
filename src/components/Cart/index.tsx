@@ -22,7 +22,7 @@ const Cart = () => {
   }
 
   const goToDelivery = () => {
-    navigate('/delivery')
+    navigate('/checkout')
     closeCart()
   }
 

@@ -4,7 +4,7 @@ import instagram from '../../assets/images/instagram.png'
 import facebook from '../../assets/images/facebook.png'
 import twitter from '../../assets/images/twitter.png'
 
-import { FooterContainer, LinkFooter, Links, Text } from './styles'
+import * as S from './styles'
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -12,35 +12,35 @@ const Footer = () => {
   }
 
   return (
-    <FooterContainer>
+    <S.FooterContainer>
       <Link to="/" onClick={scrollToTop}>
         <img className="logo" src={logo} alt="logo" />
       </Link>
-      <Links>
+      <S.Links>
         <li>
-          <LinkFooter href="#">
+          <S.LinkFooter href="#">
             <img src={instagram} alt="instagram" />
-          </LinkFooter>
+          </S.LinkFooter>
         </li>
         <li>
-          <LinkFooter href="#">
+          <S.LinkFooter href="#">
             <img src={facebook} alt="facebook" />
-          </LinkFooter>
+          </S.LinkFooter>
         </li>
         <li>
-          <LinkFooter href="#">
+          <S.LinkFooter href="#">
             <img src={twitter} alt="twitter" />
-          </LinkFooter>
+          </S.LinkFooter>
         </li>
-      </Links>
+      </S.Links>
       <div>
-        <Text>
+        <S.Text>
           A efood é uma plataforma para divulgação de estabelecimentos, a
           responsabilidade pela entrega, qualidade
           <br /> dos produtos é toda do estabelecimento contratado.
-        </Text>
+        </S.Text>
       </div>
-    </FooterContainer>
+    </S.FooterContainer>
   )
 }
 

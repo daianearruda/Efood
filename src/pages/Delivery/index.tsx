@@ -5,12 +5,13 @@ import { CartContainer, Overlay } from '../../components/Cart/styles'
 import * as Yup from 'yup'
 
 import ReactInputMask from 'react-input-mask'
-import { CustomSidebar, DivInputs, Row } from './styles'
 import Button from '../../components/Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { clear, open, close } from '../../store/reducers/cart'
 import { RootReducer } from '../../store'
 import { useFormik } from 'formik'
+
+import * as S from './styles'
 
 const Delivery = () => {
   const navigate = useNavigate()
@@ -159,10 +160,10 @@ const Delivery = () => {
       {!showPayment ? (
         <CartContainer className="is-open">
           <Overlay onClick={closeCart} />
-          <CustomSidebar>
+          <S.CustomSidebar>
             <h2>Entrega</h2>
             <form onSubmit={form.handleSubmit}>
-              <DivInputs>
+              <S.DivInputs>
                 <label htmlFor="receiver">Quem irá receber</label>
                 <input
                   type="text"
@@ -173,8 +174,8 @@ const Delivery = () => {
                   onBlur={form.handleBlur}
                   className={checkInputHasError('receiver') ? 'error' : ''}
                 />
-              </DivInputs>
-              <DivInputs>
+              </S.DivInputs>
+              <S.DivInputs>
                 <label htmlFor="description">Endereço</label>
                 <input
                   type="text"
@@ -185,8 +186,8 @@ const Delivery = () => {
                   onBlur={form.handleBlur}
                   className={checkInputHasError('description') ? 'error' : ''}
                 />
-              </DivInputs>
-              <DivInputs>
+              </S.DivInputs>
+              <S.DivInputs>
                 <label htmlFor="city">Cidade</label>
                 <input
                   type="text"
@@ -197,9 +198,9 @@ const Delivery = () => {
                   onBlur={form.handleBlur}
                   className={checkInputHasError('city') ? 'error' : ''}
                 />
-              </DivInputs>
-              <Row>
-                <DivInputs maxWidth="46%">
+              </S.DivInputs>
+              <S.Row>
+                <S.DivInputs maxWidth="46%">
                   <label htmlFor="zipCode">CEP</label>
                   <ReactInputMask
                     type="text"
@@ -211,8 +212,8 @@ const Delivery = () => {
                     className={checkInputHasError('zipCode') ? 'error' : ''}
                     mask="99999-999"
                   />
-                </DivInputs>
-                <DivInputs maxWidth="46%">
+                </S.DivInputs>
+                <S.DivInputs maxWidth="46%">
                   <label htmlFor="addressNumber">Número</label>
                   <input
                     type="text"
@@ -225,9 +226,9 @@ const Delivery = () => {
                       checkInputHasError('addressNumber') ? 'error' : ''
                     }
                   />
-                </DivInputs>
-              </Row>
-              <DivInputs>
+                </S.DivInputs>
+              </S.Row>
+              <S.DivInputs>
                 <label htmlFor="complement">Complemento (opcional)</label>
                 <input
                   type="text"
@@ -237,7 +238,7 @@ const Delivery = () => {
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
                 />
-              </DivInputs>
+              </S.DivInputs>
 
               <Button
                 background="white"
@@ -259,7 +260,7 @@ const Delivery = () => {
                 Voltar para o carrinho
               </Button>
             </form>
-          </CustomSidebar>
+          </S.CustomSidebar>
         </CartContainer>
       ) : (
         <>
@@ -267,7 +268,7 @@ const Delivery = () => {
             <>
               <CartContainer className="is-open">
                 <Overlay onClick={closeCart} />
-                <CustomSidebar>
+                <S.CustomSidebar>
                   <h2>Pedido realizado - {data?.orderId} </h2>
                   <p>
                     Estamos felizes em informar que seu pedido já está em
@@ -297,17 +298,17 @@ const Delivery = () => {
                     {' '}
                     Concluir
                   </Button>
-                </CustomSidebar>
+                </S.CustomSidebar>
               </CartContainer>
             </>
           ) : (
             <>
               <CartContainer className="is-open">
                 <Overlay onClick={closeCart} />
-                <CustomSidebar>
+                <S.CustomSidebar>
                   <h2>Pagamento - Valor a pagar {getTotalPrice()}</h2>
                   <form onSubmit={form.handleSubmit}>
-                    <DivInputs>
+                    <S.DivInputs>
                       <label htmlFor="name">Nome no cartão</label>
                       <input
                         type="text"
@@ -318,9 +319,9 @@ const Delivery = () => {
                         onBlur={form.handleBlur}
                         className={checkInputHasError('name') ? 'error' : ''}
                       />
-                    </DivInputs>
-                    <Row>
-                      <DivInputs maxWidth="70%">
+                    </S.DivInputs>
+                    <S.Row>
+                      <S.DivInputs maxWidth="70%">
                         <label htmlFor="cardNumber">Número do cartão</label>
                         <ReactInputMask
                           type="text"
@@ -334,8 +335,8 @@ const Delivery = () => {
                           }
                           mask={'9999 9999 9999 9999'}
                         />
-                      </DivInputs>
-                      <DivInputs maxWidth="20%">
+                      </S.DivInputs>
+                      <S.DivInputs maxWidth="20%">
                         <label htmlFor="code">CVV</label>
                         <ReactInputMask
                           type="text"
@@ -347,10 +348,10 @@ const Delivery = () => {
                           className={checkInputHasError('code') ? 'error' : ''}
                           mask={'999'}
                         />
-                      </DivInputs>
-                    </Row>
-                    <Row>
-                      <DivInputs maxWidth="46%">
+                      </S.DivInputs>
+                    </S.Row>
+                    <S.Row>
+                      <S.DivInputs maxWidth="46%">
                         <label htmlFor="month">Mês de vencimento</label>
                         <ReactInputMask
                           type="text"
@@ -362,8 +363,8 @@ const Delivery = () => {
                           className={checkInputHasError('month') ? 'error' : ''}
                           mask={'99'}
                         />
-                      </DivInputs>
-                      <DivInputs maxWidth="46%">
+                      </S.DivInputs>
+                      <S.DivInputs maxWidth="46%">
                         <label htmlFor="year">Ano de vencimento</label>
                         <ReactInputMask
                           type="text"
@@ -375,8 +376,8 @@ const Delivery = () => {
                           className={checkInputHasError('year') ? 'error' : ''}
                           mask={'9999'}
                         />
-                      </DivInputs>
-                    </Row>
+                      </S.DivInputs>
+                    </S.Row>
 
                     <Button
                       background="white"
@@ -396,7 +397,7 @@ const Delivery = () => {
                       Voltar ao endereço
                     </Button>
                   </form>
-                </CustomSidebar>
+                </S.CustomSidebar>
               </CartContainer>
             </>
           )}

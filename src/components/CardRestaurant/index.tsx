@@ -1,6 +1,6 @@
 import Tag from '../Tag'
 import Button from '../Button'
-import { Card, Title, Description, Rating } from './style'
+import * as S from './style'
 import { Taghighlight } from '../Tag/taghighlight/styles'
 import { Link } from 'react-router-dom'
 import imgStar from '../../assets/images/estrela.png'
@@ -12,7 +12,7 @@ type Props = {
   description: string
   image: string
   rating: number
-  destacado: boolean
+  highlighted: boolean
 }
 
 const CardRestaurant = ({
@@ -22,33 +22,28 @@ const CardRestaurant = ({
   description,
   image,
   rating,
-  destacado
+  highlighted
 }: Props) => (
-  <Card>
-    {destacado && <Taghighlight>Destaque da semana</Taghighlight>}
+  <S.Card>
+    {highlighted && <Taghighlight>Destaque da semana</Taghighlight>}
     <Tag>{type}</Tag>
     <img className="photoFood" src={image} alt={title} />
     <div className="border">
       <div className="details">
-        <Title>{title}</Title>
-        <Rating>
+        <S.Title>{title}</S.Title>
+        <S.Rating>
           <div>{rating}</div>
           <img src={imgStar} alt="Estrela" />
-        </Rating>
+        </S.Rating>
       </div>
-      <Description>{description}</Description>
-      <Link
-        to={`/restaurantes/${id}`}
-        onClick={() => {
-          console.log('clicado')
-        }}
-      >
+      <S.Description>{description}</S.Description>
+      <Link to={`/restaurantes/${id}`}>
         <Button title={title} background="orange" type={'button'}>
           Saiba mais
         </Button>
       </Link>
     </div>
-  </Card>
+  </S.Card>
 )
 
 export default CardRestaurant

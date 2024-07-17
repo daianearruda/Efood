@@ -1,13 +1,7 @@
 import { useState } from 'react'
 import Product from '../RestaurantProduct'
 
-import {
-  ContainerList,
-  ProductList,
-  Modal,
-  ModalContent,
-  Overlay
-} from './styles'
+import * as S from './styles'
 import Button from '../Button'
 
 import fechar from '../../assets/images/close.png'
@@ -47,8 +41,8 @@ const ProductListRestaurant = ({ products }: Props) => {
   }
 
   return (
-    <ContainerList className="container">
-      <ProductList>
+    <S.ContainerList className="container">
+      <S.ProductList>
         {products.map((prod) => (
           <Product
             id={prod.id}
@@ -59,12 +53,12 @@ const ProductListRestaurant = ({ products }: Props) => {
             openModal={() => handleOpenModal(prod)}
           />
         ))}
-      </ProductList>
+      </S.ProductList>
 
       {selectProduct && (
         <>
-          <Overlay onClick={handleOverlayClick} />
-          <Modal onClick={handleOverlayClick}>
+          <S.Overlay onClick={handleOverlayClick} />
+          <S.Modal onClick={handleOverlayClick}>
             <div className="container" onClick={(e) => e.stopPropagation()}>
               <div className="imgTest">
                 <img src={selectProduct.foto} alt="" />
@@ -73,7 +67,7 @@ const ProductListRestaurant = ({ products }: Props) => {
                 <img src={fechar} alt="Fechar" />
               </div>
 
-              <ModalContent>
+              <S.ModalContent>
                 <h5>{selectProduct.nome}</h5>
                 <p>{selectProduct.descricao}</p>
 
@@ -88,12 +82,12 @@ const ProductListRestaurant = ({ products }: Props) => {
                 >
                   {`Adicionar ao carrinho R$ ${selectProduct.preco.toFixed(2)}`}
                 </Button>
-              </ModalContent>
+              </S.ModalContent>
             </div>
-          </Modal>
+          </S.Modal>
         </>
       )}
-    </ContainerList>
+    </S.ContainerList>
   )
 }
 

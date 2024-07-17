@@ -18,7 +18,7 @@ const RestaurantList = ({ restaurants }: Props) => (
           description={restaurante.descricao}
           image={restaurante.capa}
           rating={parseFloat(restaurante.avaliacao)}
-          destacado={restaurante.destacado}
+          highlighted={restaurante.destacado}
         />
       ))}
     </List>

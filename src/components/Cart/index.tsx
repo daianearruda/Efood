@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import Button from '../Button'
 
-import { CartContainer, Overlay, Sidebar, CartItem, Prices } from './styles'
+import * as S from './styles'
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
 import { useNavigate } from 'react-router-dom'
@@ -30,26 +30,26 @@ const Cart = () => {
   }
 
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={closeCart} />
-      <Sidebar>
+    <S.CartContainer className={isOpen ? 'is-open' : ''}>
+      <S.Overlay onClick={closeCart} />
+      <S.Sidebar>
         {items.length > 0 ? (
           <>
             <ul>
               {items.map((item) => (
-                <CartItem key={item.id}>
+                <S.CartItem key={item.id}>
                   <img src={item.foto} alt={item.nome} />
                   <div>
                     <h3>{item.nome}</h3>
                     <span>$ {item.preco.toFixed(2)}</span>
                   </div>
                   <button type="button" onClick={() => removeItem(item.id)} />
-                </CartItem>
+                </S.CartItem>
               ))}
             </ul>
-            <Prices>
+            <S.Prices>
               Valor total <span>R$ {getTotalPrice()}</span>
-            </Prices>
+            </S.Prices>
             <Button
               background="white"
               type="button"
@@ -65,8 +65,8 @@ const Cart = () => {
             compra
           </p>
         )}
-      </Sidebar>
-    </CartContainer>
+      </S.Sidebar>
+    </S.CartContainer>
   )
 }
 

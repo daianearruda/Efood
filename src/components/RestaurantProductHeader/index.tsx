@@ -1,4 +1,4 @@
-import { HeaderRestaurant, DetailsHeader, TitlePhoto } from './styles'
+import * as S from './styles'
 import { Link } from 'react-router-dom'
 
 import { open } from '../../store/reducers/cart'
@@ -28,8 +28,8 @@ const RestaurantProductHeader = ({ restaurante }: RestaurantProps) => {
   }
 
   return (
-    <HeaderRestaurant backgroundImage={restaurante.foto}>
-      <DetailsHeader>
+    <S.HeaderRestaurant backgroundImage={restaurante.foto}>
+      <S.DetailsHeader>
         <a href="">
           <Link to="/" onClick={scrollToTop}>
             Restaurantes
@@ -38,16 +38,16 @@ const RestaurantProductHeader = ({ restaurante }: RestaurantProps) => {
         <a role="button" onClick={openCart}>
           {items.length} <span>produto(s) no carrinho</span>
         </a>
-      </DetailsHeader>
-      <TitlePhoto>
+      </S.DetailsHeader>
+      <S.TitlePhoto>
         <div>
           <h2>{restaurante.tipo}</h2>
         </div>
         <div>
           <h1>{restaurante.nome}</h1>
         </div>
-      </TitlePhoto>
-    </HeaderRestaurant>
+      </S.TitlePhoto>
+    </S.HeaderRestaurant>
   )
 }
 

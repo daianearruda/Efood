@@ -6,6 +6,7 @@ import * as S from './styles'
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
 import { useNavigate } from 'react-router-dom'
+import { getTotalPrice } from '../../utils'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
@@ -14,10 +15,6 @@ const Cart = () => {
 
   const closeCart = () => {
     dispatch(close())
-  }
-
-  const getTotalPrice = () => {
-    return items.reduce((total, item) => total + item.preco, 0).toFixed(2)
   }
 
   const removeItem = (id: number) => {
@@ -48,7 +45,7 @@ const Cart = () => {
               ))}
             </ul>
             <S.Prices>
-              Valor total <span>R$ {getTotalPrice()}</span>
+              Valor total <span>R$ {getTotalPrice(items)}</span>
             </S.Prices>
             <Button
               background="white"

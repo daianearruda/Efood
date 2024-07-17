@@ -5,7 +5,6 @@ import * as S from './styles'
 import Button from '../Button'
 
 import fechar from '../../assets/images/close.png'
-import { Cardapio } from '../../pages/RestaurantPage'
 import { useDispatch } from 'react-redux'
 import { add, open } from '../../store/reducers/cart'
 

@@ -1,18 +1,8 @@
-import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import RestaurantProductHeader from '../../components/RestaurantProductHeader'
 import ProductListRestaurant from '../../components/RestaurantProductList'
 
 import { useGetRestaurantIdQuery } from '../../services/api'
-
-export type Cardapio = {
-  id: number
-  foto: string
-  preco: number
-  nome: string
-  descricao: string
-  porcao: string
-}
 
 type RestaurantProps = {
   id: number

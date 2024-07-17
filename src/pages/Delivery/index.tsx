@@ -12,6 +12,7 @@ import { RootReducer } from '../../store'
 import { useFormik } from 'formik'
 
 import * as S from './styles'
+import { getTotalPrice } from '../../utils'
 
 const Delivery = () => {
   const navigate = useNavigate()
@@ -149,10 +150,6 @@ const Delivery = () => {
 
   const backToAddress = () => {
     setShowPayment(false)
-  }
-
-  const getTotalPrice = () => {
-    return items.reduce((total, item) => total + item.preco, 0).toFixed(2)
   }
 
   return (
@@ -306,7 +303,7 @@ const Delivery = () => {
               <CartContainer className="is-open">
                 <Overlay onClick={closeCart} />
                 <S.CustomSidebar>
-                  <h2>Pagamento - Valor a pagar {getTotalPrice()}</h2>
+                  <h2>Pagamento - Valor a pagar {getTotalPrice(items)}</h2>
                   <form onSubmit={form.handleSubmit}>
                     <S.DivInputs>
                       <label htmlFor="name">Nome no cartão</label>

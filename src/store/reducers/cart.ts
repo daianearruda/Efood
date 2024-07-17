@@ -1,6 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Restaurante } from '../../pages/Home'
-import { Cardapio } from '../../pages/RestaurantPage'
 
 type CartState = {
   isOpen: boolean

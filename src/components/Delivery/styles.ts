@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Sidebar as OriginalSidebar } from '../../components/Cart/styles'
+import { Sidebar as OriginalSidebar } from '../Cart/styles'
 import { colors } from '../../styles'
 
 type InputGroupProps = {

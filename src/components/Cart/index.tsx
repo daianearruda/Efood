@@ -7,11 +7,13 @@ import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
 import { useNavigate } from 'react-router-dom'
 import { getTotalPrice } from '../../utils'
+import { useState } from 'react'
+import Delivery from '../Delivery'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+  const [payment, setPayment] = useState(false)
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   const closeCart = () => {
     dispatch(close())
@@ -19,11 +21,6 @@ const Cart = () => {
 
   const removeItem = (id: number) => {
     dispatch(remove(id))
-  }
-
-  const goToDelivery = () => {
-    navigate('/checkout')
-    closeCart()
   }
 
   return (
@@ -51,7 +48,7 @@ const Cart = () => {
               background="white"
               type="button"
               title="Continuar com a entrega"
-              onClick={goToDelivery}
+              onClick={() => setPayment(true)}
             >
               Continuar com a entrega
             </Button>
@@ -62,6 +59,7 @@ const Cart = () => {
             compra
           </p>
         )}
+        {payment && <Delivery setPayment={setPayment} />}
       </S.Sidebar>
     </S.CartContainer>
   )

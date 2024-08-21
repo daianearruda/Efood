@@ -4,7 +4,6 @@ import { breakpoints, colors } from '../../styles'
 export const ContainerList = styled.section`
   margin: 0 auto;
   background-color: ${colors.beige2};
-  padding: 1em;
   min-width: 100%; /* Largura total */
   min-width: 300px;
 `
@@ -12,7 +11,7 @@ export const ContainerList = styled.section`
 export const ProductList = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 2em;
+  gap: 1em;
   margin: 0 auto;
   padding-top: 4em;
   padding-bottom: 8em;
@@ -61,7 +60,7 @@ export const Modal = styled.div`
   }
 
   .container {
-    padding: 2em;
+    padding: 1em;
     display: flex;
     position: relative;
 
@@ -72,7 +71,7 @@ export const Modal = styled.div`
 
   .imgTest {
     img {
-      width: 280px;
+      width: 360px;
       height: 280px;
       @media (max-width: ${breakpoints.tablet}) {
         width: 100%;

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { usePurchaseMutation } from '../../services/api'
-import { CartContainer, Overlay } from '../../components/Cart/styles'
+import { CartContainer, Overlay } from '../Cart/styles'
 import * as Yup from 'yup'
 
 import ReactInputMask from 'react-input-mask'
-import Button from '../../components/Button'
+import Button from '../Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { clear, open, close } from '../../store/reducers/cart'
 import { RootReducer } from '../../store'
@@ -14,7 +14,7 @@ import { useFormik } from 'formik'
 import * as S from './styles'
 import { getTotalPrice } from '../../utils'
 
-const Delivery = () => {
+const Delivery = ({ setPayment }: { setPayment: (value: boolean) => void }) => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { items } = useSelector((state: RootReducer) => state.cart)
@@ -148,12 +148,13 @@ const Delivery = () => {
   const closeCart = () => {
     if (!showPayment) {
       dispatch(open())
-      navigate('/cart')
+      setPayment(false)
     }
   }
 
   const closeCard = () => {
     dispatch(close())
+    setPayment(false)
     navigate('/')
   }
 

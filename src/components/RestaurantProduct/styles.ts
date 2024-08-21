@@ -12,13 +12,12 @@ export const ProductCard = styled.div`
   flex-direction: column;
   justify-content: space-between;
   text-align: start;
-  padding: 1em;
+  padding: 0.5em;
   margin: 0 auto;
 
   img {
     width: 100%;
     min-height: 258px;
-    margin-top: 0.5em;
     margin-bottom: 0.5em;
     max-height: 304px;
 

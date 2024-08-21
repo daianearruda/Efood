@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import Tag from '../Tag'
 import Button from '../Button'
 import * as S from './style'
@@ -23,27 +24,39 @@ const CardRestaurant = ({
   image,
   rating,
   highlighted
-}: Props) => (
-  <S.Card>
-    {highlighted && <Taghighlight>Destaque da semana</Taghighlight>}
-    <Tag>{type}</Tag>
-    <img className="photoFood" src={image} alt={title} />
-    <div className="border">
-      <div className="details">
-        <S.Title>{title}</S.Title>
-        <S.Rating>
-          <div>{rating}</div>
-          <img src={imgStar} alt="Estrela" />
-        </S.Rating>
-      </div>
-      <S.Description>{description}</S.Description>
-      <Link to={`/restaurantes/${id}`}>
-        <Button title={title} background="orange" type={'button'}>
+}: Props) => {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    window.scrollTo(0, 0)
+    navigate(`/restaurantes/${id}`)
+  }
+
+  return (
+    <S.Card>
+      {highlighted && <Taghighlight>Destaque da semana</Taghighlight>}
+      <Tag>{type}</Tag>
+      <img className="photoFood" src={image} alt={title} />
+      <div className="border">
+        <div className="details">
+          <S.Title>{title}</S.Title>
+          <S.Rating>
+            <div>{rating}</div>
+            <img src={imgStar} alt="Estrela" />
+          </S.Rating>
+        </div>
+        <S.Description>{description}</S.Description>
+        <Button
+          title={title}
+          background="orange"
+          type={'button'}
+          onClick={handleClick}
+        >
           Saiba mais
         </Button>
-      </Link>
-    </div>
-  </S.Card>
-)
+      </div>
+    </S.Card>
+  )
+}
 
 export default CardRestaurant

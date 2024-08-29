@@ -53,5 +53,5 @@ Durante o desenvolvimento do **Efood**, foram aplicadas práticas modernas de de
 
 Se você tiver dúvidas ou desejar saber mais sobre o projeto, entre em contato:
 
-- **LinkedIn:** [Seu Perfil](https://www.linkedin.com/in/daianearruda/)
+- **LinkedIn:** [Clique aqui](https://www.linkedin.com/in/daianearruda/)
 
